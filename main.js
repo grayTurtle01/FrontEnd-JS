@@ -10,6 +10,8 @@ function get_pokemon(name){
           
           if(res.status != '200'){
             document.querySelector("img").src = 'missingo.png'
+            document.querySelector("#poke-name").innerText = "! Invalid Name ¡"
+            clean_fields()
             throw new Error('Invalid pokemon Name')
           }  
           return res.json()  
@@ -67,4 +69,11 @@ btn.onclick = function(){
 
 function capitalize(text){
     return text[0].toUpperCase() + text.slice(1)
+}
+
+function clean_fields(){
+    document.querySelector("#number").innerText = ''
+    document.querySelector("#height").innerText = ''
+    document.querySelector("#weight").innerText = ''
+    document.querySelector("#types").innerText = ''
 }
