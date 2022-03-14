@@ -10,18 +10,38 @@ function get_pokemon(name){
       .then( data => {
           
           console.log( data )
+
+
+          /*** Image ***/  
           sprites = data['sprites']
           sprite = sprites['front_default']
 
           image = sprites['other']['dream_world']['front_default']
-
           document.querySelector("img").src = sprite
           document.querySelector("img").src = image
-          document.querySelector("h1").innerText = name  
 
-          types = data['types']
-          type = types[0]['type']['name']
-          document.querySelector("h3").innerText =  type 
+          /*** Name ***/    
+          number = data['id']
+          name = data['name']
+          title = `#${number} ${name}`  
+
+          document.querySelector("#poke-name").innerText = capitalize(name)  
+          document.querySelector("#number").innerText = number  
+
+          /*** Height ***/
+          document.querySelector("#height").innerText = data['height']
+          console.log(data['weigth']  )    
+          document.querySelector("#weight").innerText = data['weight']    
+
+          /*** Types ***/    
+          types = []
+
+          for( item of data['types']){
+                type = item['type']['name']
+                types.push(type)
+          }  
+          
+          document.querySelector("#types").innerText =  types 
           
        })
        .catch( err => {
@@ -33,6 +53,11 @@ btn = document.querySelector("button")
 
 btn.onclick = function(){
     name = document.querySelector("input").value
+    name = name.toLowerCase()
     get_pokemon(name)
     
+}
+
+function capitalize(text){
+    return text[0].toUpperCase() + text.slice(1)
 }
