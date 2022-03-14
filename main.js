@@ -6,7 +6,14 @@ function get_pokemon(name){
     url = base_url + name
 
     fetch( url )
-      .then( res => res.json() )
+      .then( res => {
+          
+          if(res.status != '200'){
+            document.querySelector("img").src = 'missingo.png'
+            throw new Error('Invalid pokemon Name')
+          }  
+          return res.json()  
+       })
       .then( data => {
           
           console.log( data )
@@ -28,7 +35,7 @@ function get_pokemon(name){
           document.querySelector("#poke-name").innerText = capitalize(name)  
           document.querySelector("#number").innerText = number  
 
-          /*** Height ***/
+          /*** Height and Weight ***/
           document.querySelector("#height").innerText = data['height']
           console.log(data['weigth']  )    
           document.querySelector("#weight").innerText = data['weight']    
