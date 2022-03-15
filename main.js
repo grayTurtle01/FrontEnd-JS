@@ -94,3 +94,10 @@ function clean_fields(){
     document.querySelector("#weight").innerText = ''
     document.querySelector("#types").innerText = ''
 }
+
+function getRandomPokemon(){
+    random_number = Math.ceil( Math.random() * 151 )
+    get_pokemon(random_number)
+}
+
+getRandomPokemon()
