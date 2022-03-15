@@ -51,6 +51,24 @@ function get_pokemon(name){
           }  
           
           document.querySelector("#types").innerText =  types 
+
+          /*** Stats ***/
+          console.log(data['stats'])
+          stats = data['stats']
+
+          hp = stats[0]['base_stat']
+          attack = stats[1]['base_stat']
+          defense = stats[2]['base_stat']
+          special_attack = stats[3]['base_stat']
+          special_defense = stats[4]['base_stat']
+          speed = stats[5]['base_stat']
+
+          document.querySelector("#hp").innerText = hp
+          document.querySelector("#attack").innerText = attack
+          document.querySelector("#defense").innerText = defense            
+          document.querySelector("#special-attack").innerText = special_attack
+          document.querySelector("#special-defense").innerText = special_defense
+          document.querySelector("#speed").innerText = speed  
           
        })
        .catch( err => {
@@ -59,7 +77,6 @@ function get_pokemon(name){
 }
 
 btn = document.querySelector("button")
-
 btn.onclick = function(){
     name = document.querySelector("input").value
     name = name.toLowerCase()

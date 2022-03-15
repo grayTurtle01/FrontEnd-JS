@@ -3,34 +3,37 @@
 }
 
 #pokedex{
-    margin: 5vh auto;
+    margin: 2vh auto;
 
     border: 1px solid black;
     border-radius: 10px;
     
-    width: 300px;
-    height: 450px;
+    width: 400px;
+    height: 500px;
 
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 #image-screen{
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 20px;
-    height: 250px;
+    height: 200px;
 
     align-items: center;
 }
 
 img{
-/*
     border: 1px solid black;
-    border-radius: 10px;
-*/
-
     height: 80%;
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     
 }
+
+table{
+    margin-top: 20px;
+}
+
+
