@@ -32,13 +32,19 @@ img{
     
 }
 
+#tables{
+    display: flex;
+    justify-content: space-between;
+}
+
 table{
     margin-top: 20px;
     border-collapse: collapse;
 }
 
 table td, th{
-    padding: 3px;
+    padding: 5px;
+    text-align: start;
 }
 
 
