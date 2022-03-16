@@ -27,7 +27,7 @@ function get_pokemon(name){
 
           anime_image = sprites['other']['dream_world']['front_default']
           document.querySelector("img").src = sprite
-          document.querySelector("img").src = anime_image
+          //~ document.querySelector("img").src = anime_image
 
           /*** Name ***/    
           number = data['id']
