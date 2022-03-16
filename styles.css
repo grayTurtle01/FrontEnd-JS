@@ -59,4 +59,14 @@ table td, th{
     text-align: start;
 }
 
+tr td + td{
+    width: 30px;
+    text-align: center;
+}
+
+#abilities{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
 

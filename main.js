@@ -10,7 +10,7 @@ function get_pokemon(name){
           
           if(res.status != '200'){
             document.querySelector("img").src = 'missingo.png'
-            document.querySelector("#poke-name").innerText = "! Invalid Name ¡"
+            document.querySelector("#poke-name").innerText = "Invalid Name"
             clean_fields()
             throw new Error('Invalid pokemon Name')
           }  
@@ -35,7 +35,10 @@ function get_pokemon(name){
 
           /*** Stats ***/
           setStats(data)
-         
+
+         /*** Abilities ***/
+         setAbilities(data)
+
           
        })
        .catch( err => {
@@ -112,6 +115,23 @@ function clean_fields(){
     document.querySelector("#height").innerText = ''
     document.querySelector("#weight").innerText = ''
     document.querySelector("#types").innerText = ''
+}
+
+function setAbilities(data){
+    abilities = []
+
+    container = document.querySelector("#abilities")
+    for( obj of data['abilities'] ){
+        ability = obj['ability']['name']
+        abilities.push(obj['ability']['name'])
+
+        span = document.createElement('span')
+        span.innerText = ability
+
+        container.appendChild(span)
+    }
+
+    
 }
 
 function getRandomPokemon(){
