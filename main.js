@@ -120,6 +120,9 @@ function clean_fields(){
 function setAbilities(data){
     abilities = []
 
+    ability_url = data['abilities'][0]['ability']['url']
+    setAbilityDescription(ability_url)
+
     container = document.querySelector("#abilities")
     for( obj of data['abilities'] ){
         ability = obj['ability']['name']
@@ -131,6 +134,29 @@ function setAbilities(data){
         container.appendChild(span)
     }
 
+    
+}
+
+function setAbilityDescription(url_ability){
+    fetch(url_ability)
+    .then( res => res.json() )
+    .then( data => {
+        console.log(data)
+        console.log(data['effect_entries'][1])
+
+        effect = data['effect_entries'][1]['effect']
+        short_effect = data['effect_entries'][1]['short_effect']
+
+        // remove \n
+        effect = effect.split('\n').join('')
+
+        console.log(effect, short_effect)
+
+        document.querySelector("#ability-description").innerText = effect
+        
+    })
+
+    
     
 }
 
