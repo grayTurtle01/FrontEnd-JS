@@ -39,6 +39,9 @@ function get_pokemon(name){
          /*** Abilities ***/
          setAbilities(data)
 
+        /*** Evolution Chain ***/
+        setEvolutionChain(data)
+
           
        })
        .catch( err => {
@@ -196,6 +199,52 @@ function setAbilityDescription(url_ability){
 function getRandomPokemon(){
     random_number = Math.ceil( Math.random() * 151 )
     get_pokemon(random_number)
+}
+
+function getEvolutionChain(chain_url){
+    //~ url = `https://pokeapi.co/api/v2/evolution-chain/${chain_number}`
+
+    names = []
+
+    fetch( chain_url )
+    .then( res => res.json() )
+    .then( data => {
+        names = []
+        
+        let current = data.chain
+
+        name = current.species.name
+        names.push(name)
+
+
+        while( true ){
+            current = current.evolves_to[0]
+
+            try{
+                name = current.species.name
+                names.push(name)
+            }catch{
+                break;
+            }            
+        }
+        console.log(names)
+        return names
+    })
+    
+}
+
+function setEvolutionChain(data){
+    number = data['id']
+    url = `https://pokeapi.co/api/v2/pokemon-species/${number}`
+
+    fetch( url )
+    .then( res => res.json())
+    .then( data => {
+        chain_url = data['evolution_chain']['url']
+        getEvolutionChain(chain_url)
+
+    })
+    
 }
 
 getRandomPokemon()
