@@ -10,7 +10,7 @@ function get_pokemon(name){
           
           if(res.status != '200'){
             document.querySelector("img").src = 'missingo.png'
-            document.querySelector("#poke-name").innerText = "Invalid Name"
+            document.querySelector("#poke-name").innerText = "Not Found"
             clean_fields()
             throw new Error('Invalid pokemon Name')
           }  
@@ -115,6 +115,16 @@ function clean_fields(){
     document.querySelector("#height").innerText = ''
     document.querySelector("#weight").innerText = ''
     document.querySelector("#types").innerText = ''
+    
+    document.querySelector("#hp").innerText = ''
+    document.querySelector("#attack").innerText = ''
+    document.querySelector("#defense").innerText = ''
+    document.querySelector("#special-attack").innerText = ''
+    document.querySelector("#special-defense").innerText = ''
+    document.querySelector("#speed").innerText = ''
+    //~ document.querySelector("#abilities").innerHTML = ''
+    
+    document.querySelector("#ability-description").innerText = ''
 }
 
 function setAbilities(data){
@@ -124,16 +134,38 @@ function setAbilities(data){
     setAbilityDescription(ability_url)
 
     container = document.querySelector("#abilities")
+    container.innerHTML = ''
+    
     for( obj of data['abilities'] ){
         ability = obj['ability']['name']
+        url = obj['ability']['url']
+
+        
         abilities.push(obj['ability']['name'])
 
         span = document.createElement('span')
+        span.classList.add("ability")
+        span.url = url
+
+        span.onclick = function(){
+            setAbilityDescription(this.url)
+
+            for( sp of document.querySelectorAll(".ability") ){
+                console.log(sp)
+                sp.style.textDecoration = 'none'
+            }
+            
+            this.style.textDecoration = 'underline'
+        }    
+        
         span.innerText = ability
 
         container.appendChild(span)
     }
 
+
+    first_ability = document.querySelector(".ability")
+    first_ability.style.textDecoration = 'underline'
     
 }
 
@@ -141,8 +173,9 @@ function setAbilityDescription(url_ability){
     fetch(url_ability)
     .then( res => res.json() )
     .then( data => {
-        console.log(data)
-        console.log(data['effect_entries'][1])
+        
+        //~ console.log(data)
+        //~ console.log(data['effect_entries'][1])
 
         effect = data['effect_entries'][1]['effect']
         short_effect = data['effect_entries'][1]['short_effect']
@@ -150,7 +183,7 @@ function setAbilityDescription(url_ability){
         // remove \n
         effect = effect.split('\n').join('')
 
-        console.log(effect, short_effect)
+        //~ console.log(effect, short_effect)
 
         document.querySelector("#ability-description").innerText = effect
         
