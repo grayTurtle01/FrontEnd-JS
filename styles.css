@@ -126,6 +126,13 @@ tr td + td{
     height: 100px;
     width: 100px;
     margin-top: 10px;
+
+    cursor: pointer;
     
 }
+
+.chain-evolution-img:hover{
+    box-shadow: 5px 5px 10px;
+}
+
 

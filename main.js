@@ -269,11 +269,16 @@ function render_pokemon(name){
        })
       .then( data => {
 
-          console.log( data )
+          //~ console.log( data )
           let container = document.querySelector("#chain-evolution")
 
           let img = document.createElement('img')
           img.classList.add('chain-evolution-img')
+          img.title = data.name  
+
+          img.onclick = function(){
+              get_pokemon(data.id)
+          }  
 
           sprites = data['sprites']
           sprite = sprites['front_default']
