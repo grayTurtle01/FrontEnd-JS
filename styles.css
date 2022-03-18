@@ -3,7 +3,13 @@
 }
 
 #pokedex{
-    margin: 2vh auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pokedex-page{
+    margin: 2vh 2vh;
 
     border: 1px solid black;
     border-radius: 10px;
@@ -45,7 +51,7 @@ form{
 
 
 
-img{
+#pokedex-left img{
     border: 1px solid black;
     border-radius: 10px;
     height: 150px;
@@ -100,3 +106,26 @@ tr td + td{
     box-sizing: border-box;
     padding-left: 7px;
 }
+
+/* Pokedex Right */
+
+#pokedex-right h2{
+    text-align: center;
+}
+
+#chain-evolution{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+.chain-evolution-img{
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    
+}
+

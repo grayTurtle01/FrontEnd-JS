@@ -18,7 +18,7 @@ function get_pokemon(name){
        })
       .then( data => {
           
-          console.log( data )
+          //~ console.log( data )
 
 
           /*** Image ***/  
@@ -154,7 +154,6 @@ function setAbilities(data){
             setAbilityDescription(this.url)
 
             for( sp of document.querySelectorAll(".ability") ){
-                console.log(sp)
                 sp.style.textDecoration = 'none'
             }
             
@@ -177,16 +176,12 @@ function setAbilityDescription(url_ability){
     .then( res => res.json() )
     .then( data => {
         
-        //~ console.log(data)
-        //~ console.log(data['effect_entries'][1])
 
         effect = data['effect_entries'][1]['effect']
         short_effect = data['effect_entries'][1]['short_effect']
 
         // remove \n
         effect = effect.split('\n').join('')
-
-        //~ console.log(effect, short_effect)
 
         document.querySelector("#ability-description").innerText = effect
         
@@ -230,21 +225,70 @@ function getEvolutionChain(chain_url){
         console.log(names)
         return names
     })
+    .then( names => {
+        let container = document.querySelector("#chain-evolution")
+        container.innerHTML = ''  
+
+
+       for( name of names){ 
+            render_pokemon(name)
+       }
+    })
     
 }
 
 function setEvolutionChain(data){
-    number = data['id']
-    url = `https://pokeapi.co/api/v2/pokemon-species/${number}`
+    let number = data['id']
+    let url = `https://pokeapi.co/api/v2/pokemon-species/${number}`
 
     fetch( url )
     .then( res => res.json())
     .then( data => {
         chain_url = data['evolution_chain']['url']
         getEvolutionChain(chain_url)
-
+        
     })
     
 }
+
+function render_pokemon(name){
+
+    base_url = "https://pokeapi.co/api/v2/pokemon/"
+    url = base_url + name
+
+    fetch( url )
+      .then( res => {
+          
+          if(res.status != '200'){
+            document.querySelector("img").src = 'missingo.png'
+            document.querySelector("#poke-name").innerText = "Not Found"
+            clean_fields()
+            throw new Error('Invalid pokemon Name')
+          }  
+          return res.json()  
+       })
+      .then( data => {
+
+          console.log( data )
+          let container = document.querySelector("#chain-evolution")
+
+          let img = document.createElement('img')
+          img.classList.add('chain-evolution-img')
+
+          sprites = data['sprites']
+          sprite = sprites['front_default']
+
+          img.src = sprite
+          container.appendChild(img)
+          
+    
+       })
+       .catch( err => {
+          console.log(`error ${err} `)
+       })
+}
+
+
+
 
 getRandomPokemon()
