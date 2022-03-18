@@ -192,9 +192,11 @@ function setAbilityDescription(url_ability){
 }
 
 function getRandomPokemon(){
-    random_number = Math.ceil( Math.random() * 151 )
+    random_number = Math.ceil( Math.random() * 251 )
     get_pokemon(random_number)
 }
+
+
 
 function getEvolutionChain(chain_url){
     //~ url = `https://pokeapi.co/api/v2/evolution-chain/${chain_number}`
@@ -222,7 +224,7 @@ function getEvolutionChain(chain_url){
                 break;
             }            
         }
-        console.log(names)
+        //~ console.log(names)
         return names
     })
     .then( names => {
@@ -293,7 +295,28 @@ function render_pokemon(name){
        })
 }
 
+// Search Ability
+document.querySelector("#search-move-button").onclick = function(){
+    move = document.querySelector("#move-input").value
+    move = move.toLowerCase()
 
+    url = `https://pokeapi.co/api/v2/move/${move}`
+
+    fetch( url)
+    .then( res => res.json() )
+    .then( data => {
+        accuracy = data.accuracy
+        document.querySelector("#accuracy").innerText = accuracy
+        
+        description = data.effect_entries[0].effect
+        document.querySelector("#move-description").innerHTML = description
+
+        short_effect = data.effect_entries[0].short_effect
+        document.querySelector("#short-effect").innerText = short_effect
+        
+    })
+    
+}
 
 
 getRandomPokemon()

@@ -21,7 +21,7 @@
     padding: 15px;
 }
 
-form{
+#pokedex-left form{
     display: flex;
     justify-content: space-between;
 }
@@ -123,8 +123,8 @@ tr td + td{
 .chain-evolution-img{
     border: 1px solid black;
     border-radius: 10px;
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
     margin-top: 10px;
 
     cursor: pointer;
@@ -135,4 +135,22 @@ tr td + td{
     box-shadow: 5px 5px 10px;
 }
 
+#search-move-container{
+    margin-top: 10px;
+}
 
+#search-move-container form{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#search-move-container p{
+    margin-bottom: 10px;
+}
+
+
+#move-description{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
