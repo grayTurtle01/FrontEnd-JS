@@ -26,6 +26,17 @@
     justify-content: space-between;
 }
 
+
+
+#name{
+    width: 150px;
+}
+
+button{
+    padding: 1px;
+    font-size: 13px;
+}
+
 #random{
     margin-right: 5px;
 }
@@ -43,6 +54,7 @@
 
 #poke-name{
     margin-top: 10px;
+    font-size: 25px;
 }
 
 #screen-left{
@@ -73,6 +85,7 @@ table{
 table td, th{
     padding: 5px;
     text-align: start;
+    font-size: 15px;
 }
 
 tr td + td{
@@ -144,9 +157,12 @@ tr td + td{
     margin-bottom: 20px;
 }
 
-#search-move-container p{
+#search-move-container p, #search-move-container b{
     margin-bottom: 10px;
+    font-size: 13px;
 }
+
+
 
 
 #move-description{
