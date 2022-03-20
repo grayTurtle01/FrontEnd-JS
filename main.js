@@ -315,7 +315,20 @@ document.querySelector("#search-move-button").onclick = function(){
         document.querySelector("#short-effect").innerText = short_effect
         
     })
+    .catch( err => {
+        console.log(err)
+        clean_move_fields()
+    })
     
+}
+
+function clean_move_fields(){
+    document.querySelector("#accuracy").innerText = ''
+    
+    document.querySelector("#move-description").innerHTML = 'Move Not Found !'
+
+    document.querySelector("#short-effect").innerText = ''
+        
 }
 
 
