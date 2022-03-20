@@ -305,6 +305,10 @@ document.querySelector("#search-move-button").onclick = function(){
     fetch( url)
     .then( res => res.json() )
     .then( data => {
+        //~ console.log(data.type.name)
+        move_type = data.type.name
+        document.querySelector("#move-type").innerText = move_type
+        
         accuracy = data.accuracy
         document.querySelector("#accuracy").innerText = accuracy + '%'
         
@@ -339,9 +343,12 @@ function get_random_move(){
     fetch( url)
     .then( res => res.json() )
     .then( data => {
-        console.log(data.name)
+        //~ console.log(data)
 
         document.querySelector("#move-input").value = data.name
+
+        move_type = data.type.name
+        document.querySelector("#move-type").innerText = move_type
         
         accuracy = data.accuracy
         document.querySelector("#accuracy").innerText = accuracy + '%'
