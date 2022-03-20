@@ -159,6 +159,12 @@ tr td + td{
     margin-bottom: 20px;
 }
 
+#moves-form{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 #search-move-container p, #search-move-container b{
     margin-bottom: 10px;
     font-size: 13px;

@@ -306,7 +306,7 @@ document.querySelector("#search-move-button").onclick = function(){
     .then( res => res.json() )
     .then( data => {
         accuracy = data.accuracy
-        document.querySelector("#accuracy").innerText = accuracy
+        document.querySelector("#accuracy").innerText = accuracy + '%'
         
         description = data.effect_entries[0].effect
         document.querySelector("#move-description").innerHTML = description
@@ -331,5 +331,32 @@ function clean_move_fields(){
         
 }
 
+function get_random_move(){
+    move = Math.ceil( Math.random()*748)
+
+    url = `https://pokeapi.co/api/v2/move/${move}`
+
+    fetch( url)
+    .then( res => res.json() )
+    .then( data => {
+        console.log(data.name)
+
+        document.querySelector("#move-input").value = data.name
+        
+        accuracy = data.accuracy
+        document.querySelector("#accuracy").innerText = accuracy + '%'
+        
+        description = data.effect_entries[0].effect
+        document.querySelector("#move-description").innerHTML = description
+
+        short_effect = data.effect_entries[0].short_effect
+        document.querySelector("#short-effect").innerText = short_effect
+        
+    })
+    .catch( err => {
+        console.log(err)
+    })
+    
+}
 
 getRandomPokemon()

@@ -98,9 +98,13 @@
             
             <div id="search-move-container">
                 <h2>Moves</h2>
-                <form onsubmit="return false;">
-                    <input id="move-input" placeholder="Move">
-                    <button id="search-move-button">Search Move</button>
+                <form id="moves-form" onsubmit="return false;">
+                    <div>
+                        <input id="move-input" placeholder="Move">
+                        <button id="search-move-button">Search Move</button>
+                    </div>
+
+                    <button onclick="get_random_move()">Random</button>
                 </form>
 
                 <p><b>Accuracy:</b> <span id="accuracy"></span></p>
