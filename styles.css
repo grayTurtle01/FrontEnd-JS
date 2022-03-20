@@ -59,6 +59,64 @@ button{
     font-size: 25px;
 }
 
+#number-container{
+    text-align: left;
+}
+
+#badges-container{
+    text-align: left;
+    margin-top:5px;
+}
+
+.badge{
+    background: lightgray;
+    color: black;
+    border-radius: 7px;
+    padding: 3px;
+    margin-left: 5px;
+}
+
+.grass{
+    background: green;
+    color: white;
+}
+
+.fire{
+    background: red;
+    color: white;
+}
+
+.water{
+    background: blue;
+    color: white;
+}
+
+.poison{
+    background: purple;
+    color: white;
+}
+
+.electric{
+    background: yellow;
+    color: black;
+}
+
+.ground{
+    background: brown;
+    color: white;
+}
+
+.fairy{
+    background: pink;
+    color: white;
+}
+
+.ice{
+    background: lightblue;
+    color: white;
+}
+
+
 #screen-left{
     text-align: center;
 }

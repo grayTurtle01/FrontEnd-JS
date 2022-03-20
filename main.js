@@ -1,8 +1,6 @@
 function get_pokemon(name){
 
     base_url = "https://pokeapi.co/api/v2/pokemon/"
-
-
     url = base_url + name
 
     fetch( url )
@@ -18,7 +16,7 @@ function get_pokemon(name){
        })
       .then( data => {
           
-          //~ console.log( data )
+          console.log( data )
 
 
           /*** Image ***/  
@@ -81,15 +79,25 @@ function setHeightAndWeight(data){
 }
 
 function setTypes(data){
-    types = []
+    
+    badges = document.querySelector("#types")
+    badges.innerHTML = ''
 
     for( item of data['types']){
+        badge = document.createElement('span')
+        badge.classList.add('badge')        
+        
         type = item['type']['name']
-        types.push(type)
-    }  
+        badge.innerText = type
 
-    document.querySelector("#types").innerText =  types 
+        badge.classList.add(type)
+
+        badges.appendChild( badge )
+    }  
+     
 }
+
+
 
 function setStats(data){
     stats = data['stats']
@@ -295,7 +303,7 @@ function render_pokemon(name){
        })
 }
 
-// Search Ability
+// Search Moves
 document.querySelector("#search-move-button").onclick = function(){
     move = document.querySelector("#move-input").value
     move = move.toLowerCase()
@@ -308,6 +316,10 @@ document.querySelector("#search-move-button").onclick = function(){
         //~ console.log(data.type.name)
         move_type = data.type.name
         document.querySelector("#move-type").innerText = move_type
+        document.querySelector("#move-type").classList = ''
+        
+        document.querySelector("#move-type").classList.add(move_type)
+        document.querySelector("#move-type").classList.add('badge')
         
         accuracy = data.accuracy
         document.querySelector("#accuracy").innerText = accuracy + '%'
@@ -349,6 +361,10 @@ function get_random_move(){
 
         move_type = data.type.name
         document.querySelector("#move-type").innerText = move_type
+         document.querySelector("#move-type").classList = ''
+         
+        document.querySelector("#move-type").classList.add(move_type)
+        document.querySelector("#move-type").classList.add('badge')
         
         accuracy = data.accuracy
         document.querySelector("#accuracy").innerText = accuracy + '%'
