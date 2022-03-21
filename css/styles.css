@@ -61,6 +61,10 @@ button{
     display: flex;
     justify-content: space-around;
     align-items: start;
+
+/*
+    background: white;
+*/
 }
 
 #poke-name{
