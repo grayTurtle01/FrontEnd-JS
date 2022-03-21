@@ -1,0 +1,103 @@
+#badges-container{
+    text-align: left;
+    margin-top:5px;
+}
+
+.badge{
+    background: lightgray;
+    color: black;
+    border-radius: 7px;
+    padding: 4px;
+    margin-left: 5px;
+}
+
+.grass{
+    background: #75c953;
+    color: white;
+}
+
+.fire{
+    background: #ff4422;
+    color: white;
+}
+
+.water{
+    background: #3297fd;
+    color: white;
+}
+
+
+.electric{
+    background: #ffcc33;
+    color: black;
+}
+
+.ice{
+    background: #64c8fb;
+    color: white;
+}
+
+.fighting{
+    background: #bb5544;
+    color: white;
+}
+
+
+.poison{
+    background: #aa5599;
+    color: white;
+}
+
+.ground{
+    background: #ddbb55;
+    color: white;
+}
+
+.flying{
+    background: #8899ff;
+    color: white;
+}
+
+.psychic{
+    background: #ff5599;
+    color: white;
+}
+
+.bug{
+    background: #aabb22;
+    color: white;
+}
+
+.rock{
+    background: #bbaa66;
+    color: white;
+}
+
+.ghost{
+    background: #6666bb;
+    color: white;
+}
+
+.dragon{
+    background: #7766ee;
+    color: white;
+}
+
+.dark{
+    background: #775544;
+    color: white;
+}
+
+.steel{
+    background: #aaaabb;
+    color: white;
+}
+
+
+.fairy{
+    background: pink;
+    color: white;
+}
+
+
+

@@ -361,7 +361,7 @@ function get_random_move(){
 
         move_type = data.type.name
         document.querySelector("#move-type").innerText = move_type
-         document.querySelector("#move-type").classList = ''
+        document.querySelector("#move-type").classList = ''
          
         document.querySelector("#move-type").classList.add(move_type)
         document.querySelector("#move-type").classList.add('badge')
