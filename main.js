@@ -18,6 +18,8 @@ function get_pokemon(name){
           
           console.log( data )
 
+          document.querySelector("#name").value = data.name  
+            
 
           /*** Image ***/  
           setImage(data)  
@@ -348,7 +350,8 @@ function clean_move_fields(){
 }
 
 function get_random_move(){
-    move = Math.ceil( Math.random()*748)
+    //~ move = Math.ceil( Math.random()*748)
+    move = Math.ceil( Math.random()*200)
 
     url = `https://pokeapi.co/api/v2/move/${move}`
 
