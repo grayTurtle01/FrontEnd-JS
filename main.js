@@ -42,6 +42,9 @@ function get_pokemon(name){
         /*** Evolution Chain ***/
         setEvolutionChain(data)
 
+        /*** Get Pokemon Description ***/
+        setDescription(data.id)
+
           
        })
        .catch( err => {
@@ -80,6 +83,17 @@ function setHeightAndWeight(data){
     document.querySelector("#weight").innerText = data['weight']    
 }
 
+function setDescription(id){
+    let url = `https://pokeapi.co/api/v2/pokemon-species/${id}`
+    fetch(url)
+    .then( res => res.json() )
+    .then( data => {
+        //~ console.log(data)
+        let poke_description = data.flavor_text_entries[0].flavor_text
+        document.querySelector("#poke-image").title = poke_description
+    })
+}
+
 function setTypes(data){
     
     badges = document.querySelector("#types")
@@ -98,8 +112,6 @@ function setTypes(data){
     }  
      
 }
-
-
 
 function setStats(data){
     stats = data['stats']
