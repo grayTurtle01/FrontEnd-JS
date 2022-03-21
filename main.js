@@ -7,7 +7,7 @@ function get_pokemon(name){
       .then( res => {
           
           if(res.status != '200'){
-            document.querySelector("img").src = 'missingo.png'
+            document.querySelector("img").src = 'images/missingo.png'
             document.querySelector("#poke-name").innerText = "Not Found"
             clean_fields()
             throw new Error('Invalid pokemon Name')
