@@ -144,6 +144,35 @@ tr td + td{
     padding-left: 7px;
 }
 
+/*  Moves */
+#pokedex-middle h2{
+    text-align: center;
+}
+
+#moves-container{
+    display: flex;
+    justify-content: left;
+    flex-flow: wrap;
+
+    height: 40%;
+
+    border: 1px solid black;
+    overflow: scroll;
+
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.move{
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.move:hover{
+    cursor:pointer;
+    text-decoration: underline;
+}
+
 /* Pokedex Right */
 
 #pokedex-right h2{
