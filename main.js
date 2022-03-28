@@ -45,8 +45,9 @@ function get_pokemon(name){
         /*** Get Pokemon Description ***/
         setDescription(data.id)
 
-
-        setMoves(data)
+        get_moves(data)
+        
+        //setMoves()
 
           
        })
@@ -321,11 +322,16 @@ function render_pokemon(name){
 }
 
 
-function setMoves(data){
-    let array = data.moves
+let moves = []
 
-    let moves = []
+function get_moves(data){
+    let array = data.moves
+    moves = []
     moves = array.map( obj => obj.move.name )
+}
+
+function setMoves(){
+    
     moves.sort()
 
     let container = document.querySelector("#moves-container")
@@ -461,5 +467,45 @@ function get_random_move(){
     })
     
 }
+
+
+function get_pokemon_random_move(){
+   
+    random_index = Math.floor(Math.random() * moves.length )
+    move = moves[random_index]   
+
+    url = `https://pokeapi.co/api/v2/move/${move}`
+
+    fetch( url)
+    .then( res => res.json() )
+    .then( data => {
+        //~ console.log(data)
+
+        document.querySelector("#move-input").value = data.name
+
+        move_type = data.type.name
+        document.querySelector("#move-type").innerText = move_type
+        document.querySelector("#move-type").classList = ''
+         
+        document.querySelector("#move-type").classList.add(move_type)
+        document.querySelector("#move-type").classList.add('badge')
+        
+        accuracy = data.accuracy
+        document.querySelector("#accuracy").innerText = accuracy + '%'
+        
+        description = data.effect_entries[0].effect
+        document.querySelector("#move-description").innerHTML = description
+
+        short_effect = data.effect_entries[0].short_effect
+        document.querySelector("#short-effect").innerText = short_effect
+        
+    })
+    .catch( err => {
+        console.log(err)
+    })
+    
+}
+
+
 
 getRandomPokemon()
