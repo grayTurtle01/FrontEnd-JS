@@ -144,7 +144,11 @@ tr td + td{
     padding-left: 7px;
 }
 
-/*  Moves */
+/******  Moves *******/
+#pokedex-middle{
+    display: none;
+}
+
 #pokedex-middle h2{
     text-align: center;
 }
@@ -171,9 +175,10 @@ tr td + td{
 .move:hover{
     cursor:pointer;
     text-decoration: underline;
+    font-weight: bold;
 }
 
-/* Pokedex Right */
+/****** Pokedex Right ********/
 
 #pokedex-right h2{
     text-align: center;
