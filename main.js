@@ -48,7 +48,6 @@ function get_pokemon(name){
         get_moves(data)
         
         //setMoves()
-
         //get_pokemon_random_move()
 
           
