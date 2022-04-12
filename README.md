@@ -5,4 +5,4 @@ Search your favorite pokemons with stats and moves
 ![screenshot](images/screenshot.png)
 
 ## Demo 🖥️
-[Deploy](https://grayturtle01.github.io/FrontEnd-JS/) 🚀
+[Deploy](https://grayturtle01.github.io/Pokedex/) 🚀
